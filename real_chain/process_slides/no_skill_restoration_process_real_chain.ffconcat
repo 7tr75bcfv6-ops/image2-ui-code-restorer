@@ -1,0 +1,13 @@
+ffconcat version 1.0
+file '/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/process_slides/01_manual_input.png'
+duration 4
+file '/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/process_slides/02_manual_guess.png'
+duration 4
+file '/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/process_slides/03_manual_restore.png'
+duration 4
+file '/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/process_slides/04_manual_compare.png'
+duration 4
+file '/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/process_slides/05_manual_result.png'
+duration 4
+file '/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/process_slides/05_manual_result.png'
+duration 1

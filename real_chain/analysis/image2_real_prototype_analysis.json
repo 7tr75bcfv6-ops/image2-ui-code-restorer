@@ -1,0 +1,70 @@
+{
+  "count": 1,
+  "images": [
+    {
+      "path": "/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/assets/image2_real_prototype.png",
+      "filename": "image2_real_prototype.png",
+      "width": 1672,
+      "height": 941,
+      "aspect_ratio": 1.776833,
+      "suggested_viewport": "1672x941",
+      "corner_and_center_samples": {
+        "top_left": "#021D19",
+        "top_right": "#FBFCFE",
+        "bottom_left": "#021D19",
+        "bottom_right": "#F8F9FA",
+        "center": "#F7F8FA"
+      },
+      "dominant_palette": [
+        {
+          "hex": "#F8F9FB",
+          "count": 2532
+        },
+        {
+          "hex": "#F8F8FB",
+          "count": 2247
+        },
+        {
+          "hex": "#031D19",
+          "count": 1714
+        },
+        {
+          "hex": "#021D19",
+          "count": 1617
+        },
+        {
+          "hex": "#BDC2B7",
+          "count": 1579
+        },
+        {
+          "hex": "#021C19",
+          "count": 1325
+        },
+        {
+          "hex": "#092320",
+          "count": 1130
+        },
+        {
+          "hex": "#2D4130",
+          "count": 1109
+        },
+        {
+          "hex": "#0A2522",
+          "count": 1108
+        },
+        {
+          "hex": "#E4E5D4",
+          "count": 1087
+        },
+        {
+          "hex": "#C8DB5A",
+          "count": 988
+        },
+        {
+          "hex": "#F2F4ED",
+          "count": 925
+        }
+      ]
+    }
+  ]
+}

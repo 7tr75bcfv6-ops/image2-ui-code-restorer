@@ -1,0 +1,197 @@
+{
+  "schema": "hyperframes-dual-platform-storyboard.v1",
+  "project": "image2-ui-code-restorer-real-chain-first-video",
+  "createdFor": "抖音 9:16 + B站 16:9 同素材双版本",
+  "sourceTruth": {
+    "image2Prototype": "real_chain/assets/image2_real_prototype.png",
+    "withSkillRestoration": "real_chain/screenshots/with_skill_restoration.png",
+    "noSkillRestoration": "real_chain/screenshots/no_skill_restoration.png",
+    "withSkillProcessFallback": "real_chain/recordings/skill_restoration_process_real_chain.mp4",
+    "noSkillProcessFallback": "real_chain/recordings/no_skill_restoration_process_real_chain.mp4",
+    "userRecordingSlots": {
+      "image2Generation": "real_chain/user_recordings/01_image2_prompt_to_prototype_screenstudio.mp4",
+      "withSkill": "real_chain/user_recordings/02_with_skill_codex_restore_screenstudio_fast.mp4",
+      "noSkill": "real_chain/user_recordings/03_no_skill_codex_restore_screenstudio_fast.mp4",
+      "talkingHeadRaw": "real_chain/user_recordings/04_talking_head_raw.mp4",
+      "talkingHeadClean": "real_chain/user_recordings/05_talking_head_clean_cut.mp4"
+    }
+  },
+  "visualSystem": {
+    "palette": {
+      "background": "#F8F9FB",
+      "deepPanel": "#031D19",
+      "accent": "#C8DB5A",
+      "text": "#13201D",
+      "muted": "#6E7A76",
+      "warning": "#F6B73C"
+    },
+    "captionStyle": "左下角动态字幕，关键词用荧光黄绿色高亮",
+    "motion": "快速推入、截图局部放大、左右对比滑动、代码滚动加速"
+  },
+  "voiceover": {
+    "scriptFile": "docs/ai_voice_script_60s_real_chain.md",
+    "pace": "中速偏快",
+    "pauseMarks": {
+      "/": "短停顿",
+      "//": "明显停顿",
+      "【重音】": "加重语气"
+    }
+  },
+  "platformVersions": {
+    "douyin_9x16": {
+      "canvas": {
+        "width": 1080,
+        "height": 1920,
+        "duration": 60
+      },
+      "timeline": [
+        {
+          "id": "d01_hook",
+          "start": 0,
+          "end": 5,
+          "primaryMedia": "real_chain/user_recordings/04_talking_head_raw.mp4",
+          "fallbackMedia": "real_chain/assets/image2_real_prototype.png",
+          "layout": "真人半身置顶，底部放 1:1 对比小卡",
+          "overlayText": "同一张图，技能还原差距多大？",
+          "caption": "同一张 AI 生成 UI 图，直接还原和调用技能还原，差距到底有多大？"
+        },
+        {
+          "id": "d02_pain",
+          "start": 5,
+          "end": 13,
+          "primaryMedia": "real_chain/assets/image2_real_prototype.png",
+          "layout": "竖屏中部大图，放大侧边栏、表格、参数面板三个细节",
+          "overlayText": "布局 / 颜色 / 细节 都容易跑偏",
+          "caption": "平时拿到这种原型图，很容易卡在布局、颜色和细节。"
+        },
+        {
+          "id": "d03_image2",
+          "start": 13,
+          "end": 22,
+          "primaryMedia": "real_chain/user_recordings/01_image2_prompt_to_prototype_screenstudio.mp4",
+          "fallbackMedia": "real_chain/assets/image2_real_prototype.png",
+          "layout": "先显示提示词局部，再切到生成结果全图",
+          "overlayText": "Image2 生成原型图",
+          "caption": "这张图是先用 Image2 生成的中文 SaaS 后台原型。"
+        },
+        {
+          "id": "d04_with_skill",
+          "start": 22,
+          "end": 39,
+          "primaryMedia": "real_chain/user_recordings/02_with_skill_codex_restore_screenstudio_fast.mp4",
+          "fallbackMedia": "real_chain/recordings/skill_restoration_process_real_chain.mp4",
+          "layout": "录屏铺满，关键步骤加荧光描边和箭头",
+          "overlayText": "调用 image2-ui-code-restorer",
+          "caption": "它会先分析图片尺寸、主色、模块结构，再还原成可运行前端。"
+        },
+        {
+          "id": "d05_no_skill",
+          "start": 39,
+          "end": 49,
+          "primaryMedia": "real_chain/user_recordings/03_no_skill_codex_restore_screenstudio_fast.mp4",
+          "fallbackMedia": "real_chain/recordings/no_skill_restoration_process_real_chain.mp4",
+          "layout": "开始和结尾跳切，中间用 1600% 加速效果",
+          "overlayText": "不调用技能：流程更散",
+          "caption": "不调用技能也能做，但结构和间距更容易跑偏。"
+        },
+        {
+          "id": "d06_compare",
+          "start": 49,
+          "end": 56,
+          "primaryMedia": "real_chain/screenshots/with_skill_restoration.png",
+          "secondaryMedia": "real_chain/screenshots/no_skill_restoration.png",
+          "layout": "左右对比，上方贴标签：技能版 / 普通版",
+          "overlayText": "差距在分析规则，不只在生成代码",
+          "caption": "真正拉开差距的是前面的分析和还原规则。"
+        },
+        {
+          "id": "d07_cta",
+          "start": 56,
+          "end": 60,
+          "primaryMedia": "real_chain/assets/image2_real_prototype.png",
+          "layout": "真人头像或口播卡 + GitHub 标识 + 评论关键词",
+          "overlayText": "评论「教程」领取完整流程",
+          "caption": "关注我，评论教程，我发你 GitHub 和使用流程。"
+        }
+      ]
+    },
+    "bilibili_16x9": {
+      "canvas": {
+        "width": 1920,
+        "height": 1080,
+        "duration": 60
+      },
+      "timeline": [
+        {
+          "id": "b01_hook",
+          "start": 0,
+          "end": 5,
+          "primaryMedia": "real_chain/user_recordings/04_talking_head_raw.mp4",
+          "fallbackMedia": "real_chain/assets/image2_real_prototype.png",
+          "layout": "左侧真人，右侧展示原型图与两个结果缩略图",
+          "overlayText": "AI 图片到前端，技能版 vs 普通版",
+          "caption": "同一张 AI 生成 UI 图，直接还原和调用技能还原，差距到底有多大？"
+        },
+        {
+          "id": "b02_pain",
+          "start": 5,
+          "end": 13,
+          "primaryMedia": "real_chain/assets/image2_real_prototype.png",
+          "layout": "全图居中，依次框选侧边栏、任务表格、右侧参数面板",
+          "overlayText": "为什么截图还原总要改半天？",
+          "caption": "布局不准、颜色不准、细节反复手改，是截图还原里最常见的问题。"
+        },
+        {
+          "id": "b03_image2",
+          "start": 13,
+          "end": 22,
+          "primaryMedia": "real_chain/user_recordings/01_image2_prompt_to_prototype_screenstudio.mp4",
+          "fallbackMedia": "real_chain/assets/image2_real_prototype.png",
+          "layout": "左侧提示词，右侧生成结果，底部显示尺寸 1672 x 941",
+          "overlayText": "输入：Image2 原型图",
+          "caption": "这张图是先用 Image2 生成的中文 SaaS 后台原型。"
+        },
+        {
+          "id": "b04_with_skill",
+          "start": 22,
+          "end": 39,
+          "primaryMedia": "real_chain/user_recordings/02_with_skill_codex_restore_screenstudio_fast.mp4",
+          "fallbackMedia": "real_chain/recordings/skill_restoration_process_real_chain.mp4",
+          "layout": "主画面为录屏，右侧窄栏列出技能工作流：分析、拆模块、写代码、截图验证",
+          "overlayText": "image2-ui-code-restorer 工作流",
+          "caption": "它会先分析图片尺寸、主色、模块结构，再还原成可运行前端。"
+        },
+        {
+          "id": "b05_no_skill",
+          "start": 39,
+          "end": 49,
+          "primaryMedia": "real_chain/user_recordings/03_no_skill_codex_restore_screenstudio_fast.mp4",
+          "fallbackMedia": "real_chain/recordings/no_skill_restoration_process_real_chain.mp4",
+          "layout": "左侧开始，右侧结果，中间用快进条表示跳过过程",
+          "overlayText": "普通还原：能做，但更依赖临场发挥",
+          "caption": "不调用技能也能做，但结构和间距更容易跑偏。"
+        },
+        {
+          "id": "b06_compare",
+          "start": 49,
+          "end": 56,
+          "primaryMedia": "real_chain/screenshots/with_skill_restoration.png",
+          "secondaryMedia": "real_chain/screenshots/no_skill_restoration.png",
+          "layout": "三栏对比：原图 / 技能版 / 普通版",
+          "overlayText": "重点不是玄学提示词，而是还原流程工程化",
+          "caption": "真正拉开差距的是前面的分析和还原规则。"
+        },
+        {
+          "id": "b07_cta",
+          "start": 56,
+          "end": 60,
+          "primaryMedia": "real_chain/assets/image2_real_prototype.png",
+          "layout": "教程卡片 + GitHub 地址占位 + 评论关键词",
+          "overlayText": "评论「教程」获取 GitHub 示例和完整流程",
+          "caption": "关注我，评论教程，我发你 GitHub 和使用流程。"
+        }
+      ]
+    }
+  }
+}
+

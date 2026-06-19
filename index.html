@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>image2-ui-code-restorer Launch Kit</title>
+    <style>
+      :root {
+        --bg: #17211d;
+        --ink: #f5ffe8;
+        --muted: #c3d1bc;
+        --line: rgba(245, 255, 232, 0.16);
+        --accent: #d8ff62;
+        --mint: #50e2a2;
+        --paper: #eef2e9;
+        --graphite: #0f1714;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: Avenir Next, Helvetica Neue, Arial, sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 16% 18%, rgba(216, 255, 98, 0.16), transparent 24%),
+          radial-gradient(circle at 86% 70%, rgba(80, 226, 162, 0.14), transparent 30%),
+          linear-gradient(rgba(245, 255, 232, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(245, 255, 232, 0.05) 1px, transparent 1px),
+          var(--bg);
+        background-size: auto, auto, 42px 42px, 42px 42px, auto;
+      }
+
+      header {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 34px 22px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        font-weight: 900;
+      }
+
+      .mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: var(--accent);
+        color: var(--bg);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .hero {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 58px 22px 44px;
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+        align-items: center;
+        gap: 46px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(54px, 7vw, 104px);
+        line-height: 0.95;
+        letter-spacing: 0;
+        max-width: 720px;
+      }
+
+      .highlight {
+        color: var(--bg);
+        background: var(--accent);
+        padding: 0 0.08em;
+        border-radius: 10px;
+      }
+
+      .lead {
+        margin: 28px 0 0;
+        color: var(--muted);
+        font-size: 20px;
+        line-height: 1.7;
+        max-width: 620px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .button {
+        height: 46px;
+        padding: 0 18px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      .button.primary {
+        background: var(--accent);
+        color: var(--bg);
+        border-color: var(--accent);
+      }
+
+      .cover {
+        position: relative;
+        overflow: hidden;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        box-shadow: 0 34px 100px rgba(0, 0, 0, 0.36);
+        background: var(--graphite);
+      }
+
+      .cover img {
+        width: 100%;
+        display: block;
+      }
+
+      section {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 56px 22px;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 22px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(32px, 4vw, 54px);
+        line-height: 1;
+      }
+
+      .note {
+        color: var(--muted);
+        max-width: 460px;
+        line-height: 1.7;
+      }
+
+      .video-grid {
+        display: grid;
+        grid-template-columns: 0.58fr 1fr;
+        gap: 24px;
+        align-items: start;
+      }
+
+      .video-block {
+        display: grid;
+        gap: 14px;
+      }
+
+      video {
+        width: 100%;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: #000;
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .asset-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .asset {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(245, 255, 232, 0.07);
+      }
+
+      .asset img {
+        width: 100%;
+        display: block;
+      }
+
+      .asset p {
+        margin: 0;
+        padding: 14px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+
+      .step {
+        min-height: 150px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        background: rgba(245, 255, 232, 0.07);
+      }
+
+      .step strong {
+        display: block;
+        color: var(--accent);
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .step span {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      footer {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 38px 22px 54px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+      }
+
+      @media (max-width: 860px) {
+        header,
+        .hero,
+        .section-head {
+          display: block;
+        }
+
+        nav {
+          margin-top: 18px;
+          flex-wrap: wrap;
+        }
+
+        .hero {
+          padding-top: 30px;
+        }
+
+        .cover {
+          margin-top: 34px;
+        }
+
+        .video-grid,
+        .asset-row,
+        .flow {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head .note {
+          margin-top: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <div class="brand"><span class="mark">AI</span><span>image2-ui-code-restorer</span></div>
+        <nav>
+          <a href="#videos">成片</a>
+          <a href="#assets">封面</a>
+          <a href="#workflow">流程</a>
+          <a href="https://github.com/7tr75bcfv6-ops/image2-ui-code-restorer/releases/tag/v0.1-demo">Release</a>
+        </nav>
+      </header>
+
+      <main>
+        <div class="hero">
+          <div>
+            <h1>Image2 到前端，<span class="highlight">60秒讲清</span></h1>
+            <p class="lead">这是 AI 科技博主矩阵第一条内容的完整发布包：抖音版、B站版、封面、教程、HyperFrames 工程、技能源码和可复现生成脚本。</p>
+            <div class="actions">
+              <a class="button primary" href="https://github.com/7tr75bcfv6-ops/image2-ui-code-restorer/releases/download/v0.1-demo/final_douyin_60s_ai_voice.mp4">下载抖音版</a>
+              <a class="button" href="https://github.com/7tr75bcfv6-ops/image2-ui-code-restorer/releases/download/v0.1-demo/final_bilibili_60s_ai_voice.mp4">下载B站版</a>
+              <a class="button" href="docs/tutorial_zh.md">查看教程</a>
+            </div>
+          </div>
+          <div class="cover">
+            <img src="assets/covers/ai_generated_cover_candidate.png" alt="AI 前端还原封面候选" />
+          </div>
+        </div>
+
+        <section id="videos">
+          <div class="section-head">
+            <h2>双平台成片</h2>
+            <p class="note">当前版本使用 AI 临时旁白，已经按 60 秒节奏完成。后续替换你的真人音色后，直接重新渲染同一工程。</p>
+          </div>
+          <div class="video-grid">
+            <div class="video-block">
+              <video controls preload="metadata" poster="assets/covers/cover_douyin_9x16.png" src="final_douyin_60s_ai_voice.mp4"></video>
+              <div class="meta"><strong>抖音 9:16</strong><span>1080×1920 · 60s</span></div>
+            </div>
+            <div class="video-block">
+              <video controls preload="metadata" poster="assets/covers/cover_bilibili_16x9.png" src="final_bilibili_60s_ai_voice.mp4"></video>
+              <div class="meta"><strong>B站 16:9</strong><span>1920×1080 · 60s</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="assets">
+          <div class="section-head">
+            <h2>视觉资产</h2>
+            <p class="note">保留了 AI 生成封面、程序化封面、Image2 风格参考图、插件还原图和无插件对照图。</p>
+          </div>
+          <div class="asset-row">
+            <div class="asset"><img src="assets/source/compare/reference_ui.png" alt="Image2 风格参考图" /><p>Image2 风格参考图：用于模拟首条视频的输入图。</p></div>
+            <div class="asset"><img src="assets/source/compare/restored_ui.png" alt="插件还原结果" /><p>Restorer 输出：可运行前端页面的视觉结果。</p></div>
+            <div class="asset"><img src="assets/source/compare/before_after_panel.png" alt="前后对比图" /><p>前后对比素材：适合视频中段和封面二次裁切。</p></div>
+          </div>
+        </section>
+
+        <section id="workflow">
+          <div class="section-head">
+            <h2>发布流程</h2>
+            <p class="note">按这个顺序替换真人素材，就能从测试版升级到正式真人出镜版。</p>
+          </div>
+          <div class="flow">
+            <div class="step"><strong>01</strong><span>用 Image2 生成参考图，或替换当前 `reference_ui.png`。</span></div>
+            <div class="step"><strong>02</strong><span>使用技能还原 UI，生成代码和前后对比素材。</span></div>
+            <div class="step"><strong>03</strong><span>用 `scripts/replace_voice_and_render.sh` 替换你的克隆音色。</span></div>
+            <div class="step"><strong>04</strong><span>导出抖音/B站双版本，发布时引导评论“教程”。</span></div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        GitHub: <a href="https://github.com/7tr75bcfv6-ops/image2-ui-code-restorer">7tr75bcfv6-ops/image2-ui-code-restorer</a>
+      </footer>
+    </div>
+  </body>
+</html>
