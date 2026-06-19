@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image2 UI Code Restorer"
+  short_description: "Restore Image2 UI screenshots into runnable frontend code"
+  default_prompt: "把这张或这些 Image2 UI 图按像素级还原成可运行的前端代码，并给出截图校验结果。"

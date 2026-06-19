@@ -1,0 +1,121 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=1920,height=1080"><title>Image2 Reference</title><style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; }
+  body {
+    font-family: "Avenir Next", "PingFang SC", "Noto Sans SC", sans-serif;
+    background: #f3f5ee;
+    color: #17211d;
+  }
+  .screen { width: 1920px; height: 1080px; display: flex; background: #eef2e9; }
+  .sidebar {
+    width: 274px; height: 1080px; padding: 34px 24px;
+    background: #12221d; color: #e7f5dc; display: flex; flex-direction: column; gap: 26px;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; font-weight: 800; font-size: 25px; }
+  .mark { width: 42px; height: 42px; border-radius: 12px; background: #d8ff62; color: #13221c; display: grid; place-items: center; font-weight: 900; }
+  .nav { display: grid; gap: 10px; }
+  .nav-item { height: 48px; border-radius: 10px; display: flex; align-items: center; gap: 12px; padding: 0 14px; color: #aabdae; font-size: 15px; }
+  .nav-item.active { color: #111e19; background: #d8ff62; font-weight: 700; }
+  .nav-dot { width: 9px; height: 9px; border-radius: 50%; background: currentColor; opacity: .72; }
+  .side-card { margin-top: auto; border: 1px solid rgba(216,255,98,.28); border-radius: 18px; padding: 18px; background: rgba(216,255,98,.08); }
+  .side-card strong { display: block; font-size: 17px; margin-bottom: 8px; color: #f1ffd1; }
+  .side-card span { color: #b5c8ba; font-size: 13px; line-height: 1.55; }
+  .main { width: 1646px; height: 1080px; padding: 28px 36px 34px; }
+  .topbar { height: 78px; display: flex; align-items: center; justify-content: space-between; }
+  .title-block h1 { margin: 0; font-size: 34px; line-height: 1.1; letter-spacing: 0; }
+  .title-block p { margin: 8px 0 0; color: #6c746e; font-size: 15px; }
+  .search { width: 430px; height: 46px; border-radius: 10px; border: 1px solid #d4ddd1; background: #fff; display: flex; align-items: center; padding: 0 18px; color: #7d857e; }
+  .actions { display: flex; align-items: center; gap: 14px; }
+  .button { height: 46px; border-radius: 10px; padding: 0 20px; border: 1px solid #17211d; background: #17211d; color: #f6ffe5; font-weight: 700; display: grid; place-items: center; }
+  .grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 22px; }
+  .panel { background: #ffffff; border: 1px solid #dbe4d9; border-radius: 20px; box-shadow: 0 24px 60px rgba(31,43,35,.08); }
+  .hero { height: 250px; padding: 28px; display: grid; grid-template-columns: 1fr 380px; gap: 20px; overflow: hidden; position: relative; }
+  .hero:after { content: ""; position: absolute; right: -70px; top: -92px; width: 330px; height: 330px; border-radius: 50%; background: rgba(216,255,98,.42); }
+  .hero h2 { margin: 0; font-size: 34px; line-height: 1.08; max-width: 620px; }
+  .hero p { margin: 14px 0 24px; color: #68716b; font-size: 16px; width: 610px; line-height: 1.65; }
+  .hero-metrics { display: flex; gap: 14px; }
+  .metric-pill { min-width: 132px; border-radius: 16px; padding: 14px 16px; background: #f3f7eb; border: 1px solid #dfe9d9; }
+  .metric-pill b { display: block; font-size: 25px; }
+  .metric-pill span { font-size: 12px; color: #708073; }
+  .flow-card { align-self: end; position: relative; z-index: 1; height: 178px; background: #15231e; border-radius: 18px; color: #eaffcc; padding: 20px; display: grid; gap: 12px; }
+  .flow-line { height: 12px; border-radius: 999px; background: linear-gradient(90deg,#d8ff62,var(--flow, #50e2a2)); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 20px 0; }
+  .stat { height: 150px; padding: 22px; }
+  .stat label { color: #748079; font-size: 13px; }
+  .stat strong { display: block; margin-top: 10px; font-size: 31px; }
+  .stat .trend { display: inline-flex; margin-top: 14px; padding: 7px 10px; border-radius: 999px; background: #eaffc4; color: #20311b; font-weight: 700; font-size: 12px; }
+  .lower { display: grid; grid-template-columns: 1.12fr .88fr; gap: 20px; }
+  .table { height: 415px; padding: 22px 24px; }
+  .panel-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+  .panel-head h3 { margin: 0; font-size: 21px; }
+  .tag { border-radius: 999px; padding: 7px 12px; background: #edf3e8; color: #4f6255; font-size: 12px; font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { color: #78827b; text-align: left; font-weight: 600; height: 42px; border-bottom: 1px solid #e2e8df; }
+  td { height: 56px; border-bottom: 1px solid #eef2ec; }
+  .status { display: inline-flex; padding: 7px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #e7ffd1; color: #28551f; }
+  .status.warn { background: #fff0bd; color: #73520d; }
+  .chart { height: 415px; padding: 22px; }
+  .bars { height: 260px; display: flex; align-items: end; gap: 16px; margin-top: 30px; border-bottom: 1px solid #dde6db; }
+  .bar { flex: 1; border-radius: 12px 12px 0 0; background: #17211d; position: relative; }
+  .bar:nth-child(even) { background: #d8ff62; }
+  .bar span { position: absolute; bottom: -34px; left: 0; right: 0; text-align: center; color: #748079; font-size: 12px; }
+
+  .manual .screen { background: #f1f1ec; }
+  .manual .sidebar { width: 292px; }
+  .manual .main { padding-left: 28px; }
+  .manual .panel { box-shadow: 0 10px 26px rgba(31,43,35,.04); border-radius: 14px; }
+  .manual .hero { grid-template-columns: 1fr 330px; }
+  .badge-source { position: absolute; right: 26px; bottom: 24px; z-index: 5; font-size: 12px; color: #718073; background: rgba(255,255,255,.76); padding: 8px 11px; border-radius: 999px; border: 1px solid #dce5da; }
+  </style></head><body class=""><div class="screen">
+    <aside class="sidebar">
+      <div class="brand"><div class="mark">AI</div><span>前端还原台</span></div>
+      <nav class="nav">
+        <div class="nav-item "><i class="nav-dot"></i>项目总览</div><div class="nav-item "><i class="nav-dot"></i>Image2输入</div><div class="nav-item active"><i class="nav-dot"></i>还原任务</div><div class="nav-item "><i class="nav-dot"></i>组件资产</div><div class="nav-item "><i class="nav-dot"></i>对比报告</div><div class="nav-item "><i class="nav-dot"></i>发布记录</div>
+      </nav>
+      <div class="side-card"><strong>今日演示目标</strong><span>同一张 Image2 UI 图，输出可运行前端，并保留无插件对照。</span></div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="title-block"><h1>Image2 UI 还原工作台</h1><p>任务 #EP01 · SaaS 仪表板 · pixel-accurate / strict</p></div>
+        <div class="actions"><div class="search">搜索任务、参数、组件</div><div class="button">开始还原</div></div>
+      </header>
+      <section class="grid">
+        <div>
+          <div class="panel hero">
+            <div><h2>从图片输入到前端页面，把“猜布局”变成可复现流程</h2><p>系统先识别模块边界、色彩和间距，再输出可编辑 DOM。人工修复从起稿阶段后移到收口阶段。</p><div class="hero-metrics">
+              <div class="metric-pill"><b>4m12s</b><span>首版产出</span></div><div class="metric-pill"><b>91%</b><span>结构匹配</span></div><div class="metric-pill"><b>Fine</b><span>组件颗粒</span></div>
+            </div></div>
+            <div class="flow-card"><b>Image2 → Analyze → Code → Preview</b><div class="flow-line"></div><div class="flow-line" style="--flow:#ffd85d;width:84%"></div><div class="flow-line" style="--flow:#7ed6ff;width:62%"></div></div>
+          </div>
+          <div class="stats">
+            <div class="panel stat"><label>平均节省</label><strong>68%</strong><span class="trend">+ 对比人工</span></div>
+            <div class="panel stat"><label>间距偏差</label><strong>8px</strong><span class="trend">strict</span></div>
+            <div class="panel stat"><label>可编辑节点</label><strong>126</strong><span class="trend">DOM</span></div>
+            <div class="panel stat"><label>发布素材</label><strong>2版</strong><span class="trend">9:16 / 16:9</span></div>
+          </div>
+          <div class="lower">
+            <div class="panel table">
+              <div class="panel-head"><h3>还原任务队列</h3><span class="tag">实时</span></div>
+              <table><thead><tr><th>模块</th><th>策略</th><th>耗时</th><th>状态</th></tr></thead><tbody>
+                <tr><td>侧边栏导航</td><td>pixel-accurate</td><td>22s</td><td><span class="status">完成</span></td></tr>
+                <tr><td>顶部工具栏</td><td>semantic</td><td>18s</td><td><span class="status">完成</span></td></tr>
+                <tr><td>数据卡片</td><td>fine</td><td>46s</td><td><span class="status">完成</span></td></tr>
+                <tr><td>表格状态</td><td>strict</td><td>31s</td><td><span class="status warn">待微调</span></td></tr>
+              </tbody></table>
+            </div>
+            <div class="panel chart">
+              <div class="panel-head"><h3>流程耗时对比</h3><span class="tag">分钟</span></div>
+              <div class="bars"><div class="bar" style="height:62%"><span>D1</span></div><div class="bar" style="height:78%"><span>D2</span></div><div class="bar" style="height:44%"><span>D3</span></div><div class="bar" style="height:90%"><span>D4</span></div><div class="bar" style="height:52%"><span>D5</span></div><div class="bar" style="height:70%"><span>D6</span></div><div class="bar" style="height:36%"><span>D7</span></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel chart" style="height:835px">
+          <div class="panel-head"><h3>参数策略</h3><span class="tag">推荐</span></div>
+          <div style="display:grid;gap:16px;margin-top:22px">
+            <div style="border:1px solid #dce5da;border-radius:16px;padding:18px;background:#f8faf5"><b style="font-size:22px">fast</b><p style="margin:8px 0 0;color:#6e7972;line-height:1.6">先跑首版，看结构是否成立</p></div><div style="border:1px solid #dce5da;border-radius:16px;padding:18px;background:#f8faf5"><b style="font-size:22px">pixel-accurate</b><p style="margin:8px 0 0;color:#6e7972;line-height:1.6">锁定边距、阴影和控件密度</p></div><div style="border:1px solid #dce5da;border-radius:16px;padding:18px;background:#f8faf5"><b style="font-size:22px">fine</b><p style="margin:8px 0 0;color:#6e7972;line-height:1.6">拆到可编辑组件颗粒</p></div><div style="border:1px solid #dce5da;border-radius:16px;padding:18px;background:#f8faf5"><b style="font-size:22px">strict</b><p style="margin:8px 0 0;color:#6e7972;line-height:1.6">终稿收口，减少偏差</p></div><div style="border:1px solid #dce5da;border-radius:16px;padding:18px;background:#f8faf5"><b style="font-size:22px">manual patch</b><p style="margin:8px 0 0;color:#6e7972;line-height:1.6">只补字体、状态和极小图标</p></div>
+          </div>
+        </div>
+      </section>
+      <div class="badge-source">Image2 Reference</div>
+    </main>
+  </div></body></html>

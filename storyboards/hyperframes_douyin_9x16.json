@@ -1,0 +1,143 @@
+{
+  "project": "image2-ui-code-restorer-ep01",
+  "platform": "hyperframes-import-like",
+  "format": "9:16",
+  "size": { "width": 1080, "height": 1920 },
+  "fps": 30,
+  "durationSec": 60,
+  "canvasMode": "frame-import",
+  "audio": {
+    "voiceProfile": "ai_cloned_profile",
+    "track": "voice/main",
+    "backgroundMusic": "assets/audio/bgm_soft_ambient_loop.mp3",
+    "musicVolume": 0.14
+  },
+  "tracks": {
+    "video": [
+      {
+        "id": "A1_FACE_HOOK",
+        "source": "assets/source/face/01_hook.mp4",
+        "start": 0,
+        "duration": 5,
+        "track": 0,
+        "fit": "cover",
+        "in": "fade",
+        "inDuration": 0.25,
+        "out": "fade",
+        "outDuration": 0.25,
+        "layout": { "x": 0, "y": 0, "w": 1080, "h": 1920 }
+      },
+      {
+        "id": "A2_PAINPOINT_BOARD",
+        "source": "assets/source/desk/02_painpoints.mp4",
+        "start": 5,
+        "duration": 8,
+        "track": 0,
+        "fit": "cover",
+        "in": "fade",
+        "inDuration": 0.2,
+        "out": "fade",
+        "outDuration": 0.2,
+        "layout": { "x": 0, "y": 210, "w": 1080, "h": 1560 }
+      },
+      {
+        "id": "A3_IMAGE2_GENCAM",
+        "source": "assets/source/recordings/03_image2_prompt_to_output.mp4",
+        "start": 13,
+        "duration": 10,
+        "track": 0,
+        "fit": "contain",
+        "in": "fade",
+        "inDuration": 0.2,
+        "out": "fade",
+        "outDuration": 0.2,
+        "layout": { "x": 40, "y": 170, "w": 1000, "h": 1560 }
+      },
+      {
+        "id": "A4_RESTORER_IMPORT",
+        "source": "assets/source/recordings/04_restorer_start.mp4",
+        "start": 23,
+        "duration": 9,
+        "track": 0,
+        "fit": "contain",
+        "in": "fade",
+        "inDuration": 0.2,
+        "out": "fade",
+        "outDuration": 0.2,
+        "layout": { "x": 40, "y": 170, "w": 1000, "h": 1560 }
+      },
+      {
+        "id": "A5_RESTORER_PREVIEW",
+        "source": "assets/source/recordings/05_restorer_preview.mp4",
+        "start": 32,
+        "duration": 8,
+        "track": 0,
+        "fit": "contain",
+        "in": "fade",
+        "inDuration": 0.2,
+        "out": "fade",
+        "outDuration": 0.2,
+        "layout": { "x": 40, "y": 170, "w": 1000, "h": 1560 }
+      },
+      {
+        "id": "A6_MANUAL_COMPARE",
+        "source": "assets/source/recordings/06_manual_compare.mp4",
+        "start": 40,
+        "duration": 9,
+        "track": 0,
+        "playbackRate": 6,
+        "fit": "cover",
+        "in": "fade",
+        "inDuration": 0.2,
+        "out": "fade",
+        "outDuration": 0.2,
+        "layout": { "x": 0, "y": 120, "w": 1080, "h": 1680 }
+      },
+      {
+        "id": "A7_CLOSE_CTA",
+        "source": "assets/source/face/07_cta_close.mp4",
+        "start": 49,
+        "duration": 11.0,
+        "track": 0,
+        "fit": "cover",
+        "in": "fade",
+        "inDuration": 0.2,
+        "out": "fade",
+        "outDuration": 0.2,
+        "layout": { "x": 0, "y": 140, "w": 1080, "h": 1640 }
+      }
+    ],
+    "image": [
+      {
+        "id": "I1_COMPARE_SPLIT",
+        "source": "assets/source/compare/before_after_card.png",
+        "start": 50,
+        "duration": 7,
+        "track": 1,
+        "in": "scale",
+        "inDuration": 0.45,
+        "layout": { "x": 100, "y": 620, "w": 880, "h": 390 },
+        "opacity": 0.95
+      }
+    ],
+    "text": [
+      { "id": "T1", "start": 0.2, "duration": 4.8, "track": 2, "content": "同一张图，手工还原常常改半天", "style": "title-01", "x": 60, "y": 120, "w": 960, "h": 140 },
+      { "id": "T2", "start": 5.1, "duration": 7.4, "track": 2, "content": "尺寸偏差、间距偏差、交互状态不一致，这是 AI 转 UI 的 3 个硬痛点", "style": "body-medium", "x": 55, "y": 1780, "w": 970, "h": 96 },
+      { "id": "T3", "start": 13.1, "duration": 9.7, "track": 2, "content": "先让 Image2 出图，再喂给 restorer，流程可复现", "style": "body-medium", "x": 55, "y": 1780, "w": 970, "h": 96 },
+      { "id": "T4", "start": 23.0, "duration": 8.9, "track": 2, "content": "image2-ui-code-restorer 一键还原，先出结构再做微调", "style": "title-02", "x": 55, "y": 1780, "w": 970, "h": 96 },
+      { "id": "T5", "start": 40.6, "duration": 8.2, "track": 2, "content": "无插件对照：只留起点和终点，中间加速跳过", "style": "body-medium", "x": 55, "y": 1780, "w": 970, "h": 96 },
+      { "id": "T6", "start": 49.0, "duration": 4.7, "track": 2, "content": "参数策略：Fast -> Strict，Fine 交付", "style": "title-02", "x": 55, "y": 1700, "w": 970, "h": 96 },
+      { "id": "T7", "start": 56.0, "duration": 3.8, "track": 2, "content": "评论‘教程’，私信发你完整参数包", "style": "cta-01", "x": 70, "y": 1750, "w": 940, "h": 92 }
+    ]
+  },
+  "events": [
+    { "at": 30, "action": "add_sfx", "name": "tick_001", "track": 3 },
+    { "at": 40.4, "action": "add_sfx", "name": "timer_fast", "track": 3 },
+    { "at": 56, "action": "add_sfx", "name": "cta_pop", "track": 3 }
+  ],
+  "notes": [
+    "把所有素材都做 60 秒首尾对齐；若素材短可重复或补静帧到目标时长。",
+    "manual_compare 建议只保留开始/结束段并在剪辑器中设置 6x 播放。",
+    "text 字幕字体建议：中文无衬线 + 适度发光，不要压缩行宽。"
+  ]
+}

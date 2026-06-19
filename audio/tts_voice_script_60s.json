@@ -1,0 +1,65 @@
+{
+  "version": "ai_voice_ready_v1",
+  "language": "zh-CN",
+  "durationSec": 60,
+  "preferredSSML": true,
+  "speechPlan": {
+    "pace": "0.96x",
+    "voice": "your_voice_clone_v1",
+    "pauseBeforeCTA": 0.22,
+    "pauseShort": 0.15,
+    "pauseMedium": 0.35,
+    "pauseLong": 0.55
+  },
+  "segments": [
+    {
+      "id": "seg_01",
+      "start": 0,
+      "end": 5.2,
+      "text": "同一张图，纯手工还原前端？你是不是也常常改到后半夜，还是不满意。"
+    },
+    {
+      "id": "seg_02",
+      "start": 5.2,
+      "end": 12,
+      "text": "尤其是 AI 生成图转 UI，最容易翻车的是尺寸、间距、交互状态三件事。"
+    },
+    {
+      "id": "seg_03",
+      "start": 12,
+      "end": 20.8,
+      "text": "这条视频给你一个可复现流程：先用 Image2 生成清晰 UI 输入图，先保留页面参考边界。"
+    },
+    {
+      "id": "seg_04",
+      "start": 20.8,
+      "end": 31.0,
+      "text": "然后交给 image2-ui-code-restorer，一键开始。看这里，页面结构先出来，样式和间距可以继续精修。"
+    },
+    {
+      "id": "seg_05",
+      "start": 31.0,
+      "end": 40.4,
+      "text": "再看无插件版本，我只保留开头和结尾，中间内容加速跳过。你能清楚感受，时间消耗差别到底有多大。"
+    },
+    {
+      "id": "seg_06",
+      "start": 40.4,
+      "end": 48.8,
+      "text": "建议参数是：识别先上 fast，样式策略先 pixel-accurate，最后用 strict 收尾。"
+    },
+    {
+      "id": "seg_07",
+      "start": 48.8,
+      "end": 56,
+      "text": "我接下来会继续做参数踩坑和失败案例，目标就是让你第一次演示就能跑起来。"
+    },
+    {
+      "id": "seg_08",
+      "start": 56,
+      "end": 60,
+      "text": "关注我。评论‘教程’，私信我，我把完整参数和素材模板发你。"
+    }
+  ],
+  "ssml": "<speak>同一张图，<emphasis level=\"strong\">纯手工还原前端</emphasis>？你是不是也常常改到后半夜，还是不满意。<break time=\"500ms\"/>尤其是 AI 生成图转 UI，最容易翻车的是<break time=\"170ms\"/>尺寸、间距、交互状态<break time=\"170ms\"/>三件事。<break time=\"480ms\"/>这条视频给你一个可复现流程：先用 Image2 生成清晰 UI 输入图，先保留页面参考边界。<break time=\"470ms\"/>然后交给 image2-ui-code-restorer，一键开始。看这里，页面结构先出来，样式和间距可以继续精修。<break time=\"470ms\"/>再看无插件版本，我只保留开头和结尾，中间内容加速跳过。你能清楚感受，时间消耗差别到底有多大。<break time=\"450ms\"/>建议参数是：识别先上 <emphasis level=\"strong\">fast</emphasis>，样式策略先 <emphasis level=\"strong\">pixel-accurate</emphasis>，最后用 <emphasis level=\"strong\">strict</emphasis> 收尾。<break time=\"460ms\"/>我接下来会继续做参数踩坑和失败案例，目标就是让你第一次演示就能跑起来。<break time=\"420ms\"/>关注我。评论“教程”，私信我，<emphasis level=\"strong\">我把完整参数和素材模板发你</emphasis>。</speak>"
+}

@@ -1,0 +1,135 @@
+{
+  "count": 2,
+  "images": [
+    {
+      "path": "/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/assets/source/compare/reference_ui.png",
+      "filename": "reference_ui.png",
+      "width": 1920,
+      "height": 1080,
+      "aspect_ratio": 1.777778,
+      "suggested_viewport": "1920x1080",
+      "corner_and_center_samples": {
+        "top_left": "#12221D",
+        "top_right": "#EEF2E9",
+        "bottom_left": "#12221D",
+        "bottom_right": "#EEF2E9",
+        "center": "#E1E5DD"
+      },
+      "dominant_palette": [
+        {
+          "hex": "#EEF2E9",
+          "count": 6839
+        },
+        {
+          "hex": "#12221D",
+          "count": 6088
+        },
+        {
+          "hex": "#F8FAF5",
+          "count": 3452
+        },
+        {
+          "hex": "#E2E7DD",
+          "count": 3352
+        },
+        {
+          "hex": "#EDF1E7",
+          "count": 2823
+        },
+        {
+          "hex": "#E8ECE3",
+          "count": 2442
+        },
+        {
+          "hex": "#7C8877",
+          "count": 1799
+        },
+        {
+          "hex": "#CED4CB",
+          "count": 1548
+        },
+        {
+          "hex": "#26352B",
+          "count": 1260
+        },
+        {
+          "hex": "#F5F8F2",
+          "count": 1141
+        },
+        {
+          "hex": "#E0F8A2",
+          "count": 1121
+        },
+        {
+          "hex": "#F1FEC1",
+          "count": 1038
+        }
+      ]
+    },
+    {
+      "path": "/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/assets/source/compare/restored_ui.png",
+      "filename": "restored_ui.png",
+      "width": 1920,
+      "height": 1080,
+      "aspect_ratio": 1.777778,
+      "suggested_viewport": "1920x1080",
+      "corner_and_center_samples": {
+        "top_left": "#12221D",
+        "top_right": "#EEF2E9",
+        "bottom_left": "#12221D",
+        "bottom_right": "#EEF2E9",
+        "center": "#E1E5DD"
+      },
+      "dominant_palette": [
+        {
+          "hex": "#EEF2E9",
+          "count": 6863
+        },
+        {
+          "hex": "#12221D",
+          "count": 6088
+        },
+        {
+          "hex": "#F8FAF5",
+          "count": 3455
+        },
+        {
+          "hex": "#E2E7DD",
+          "count": 3355
+        },
+        {
+          "hex": "#EDF1E7",
+          "count": 2816
+        },
+        {
+          "hex": "#E8ECE3",
+          "count": 2443
+        },
+        {
+          "hex": "#7C8877",
+          "count": 1799
+        },
+        {
+          "hex": "#CED4CB",
+          "count": 1545
+        },
+        {
+          "hex": "#26352B",
+          "count": 1260
+        },
+        {
+          "hex": "#F5F8F2",
+          "count": 1141
+        },
+        {
+          "hex": "#E0F8A2",
+          "count": 1121
+        },
+        {
+          "hex": "#F1FEC1",
+          "count": 1038
+        }
+      ]
+    }
+  ]
+}

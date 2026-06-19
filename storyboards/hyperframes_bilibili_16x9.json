@@ -1,0 +1,46 @@
+{
+  "project": "image2-ui-code-restorer-ep01",
+  "platform": "hyperframes-import-like",
+  "format": "16:9",
+  "size": { "width": 1920, "height": 1080 },
+  "fps": 30,
+  "durationSec": 60,
+  "canvasMode": "frame-import",
+  "audio": {
+    "voiceProfile": "ai_cloned_profile",
+    "track": "voice/main",
+    "backgroundMusic": "assets/audio/bgm_soft_ambient_loop.mp3",
+    "musicVolume": 0.12
+  },
+  "tracks": {
+    "video": [
+      { "id": "A1_FACE_HOOK", "source": "assets/source/face/01_hook_16x9.mp4", "start": 0, "duration": 5, "track": 0, "fit": "contain", "layout": { "x": 120, "y": 90, "w": 1680, "h": 900 }, "in": "fade", "inDuration": 0.22, "out": "fade", "outDuration": 0.22 },
+      { "id": "A2_PAINPOINT_BOARD", "source": "assets/source/desk/02_painpoints_16x9.mp4", "start": 5, "duration": 8, "track": 0, "fit": "contain", "layout": { "x": 140, "y": 110, "w": 1640, "h": 860 }, "in": "fade", "inDuration": 0.2, "out": "fade", "outDuration": 0.2 },
+      { "id": "A3_IMAGE2_GENCAM", "source": "assets/source/recordings/03_image2_prompt_to_output_16x9.mp4", "start": 13, "duration": 10, "track": 0, "fit": "contain", "layout": { "x": 160, "y": 100, "w": 1600, "h": 880 }, "in": "fade", "inDuration": 0.2, "out": "fade", "outDuration": 0.2 },
+      { "id": "A4_RESTORER_IMPORT", "source": "assets/source/recordings/04_restorer_start_16x9.mp4", "start": 23, "duration": 9, "track": 0, "fit": "contain", "layout": { "x": 160, "y": 100, "w": 1600, "h": 880 }, "in": "fade", "inDuration": 0.2, "out": "fade", "outDuration": 0.2 },
+      { "id": "A5_RESTORER_PREVIEW", "source": "assets/source/recordings/05_restorer_preview_16x9.mp4", "start": 32, "duration": 8, "track": 0, "fit": "contain", "layout": { "x": 160, "y": 100, "w": 1600, "h": 880 }, "in": "fade", "inDuration": 0.2, "out": "fade", "outDuration": 0.2 },
+      { "id": "A6_MANUAL_COMPARE", "source": "assets/source/recordings/06_manual_compare_16x9.mp4", "start": 40, "duration": 9, "track": 0, "playbackRate": 6, "fit": "cover", "layout": { "x": 150, "y": 120, "w": 1620, "h": 840 }, "in": "fade", "inDuration": 0.2, "out": "fade", "outDuration": 0.2 },
+      { "id": "A7_CLOSE_CTA", "source": "assets/source/face/07_cta_close_16x9.mp4", "start": 49, "duration": 11, "track": 0, "fit": "contain", "layout": { "x": 160, "y": 120, "w": 1600, "h": 840 }, "in": "fade", "inDuration": 0.2, "out": "fade", "outDuration": 0.2 }
+    ],
+    "image": [
+      { "id": "I1_COMPARE_PANEL", "source": "assets/source/compare/before_after_panel.png", "start": 47.2, "duration": 6.8, "track": 1, "in": "fade", "inDuration": 0.3, "layout": { "x": 1400, "y": 460, "w": 420, "h": 560 } }
+    ],
+    "text": [
+      { "id": "T1", "start": 0.2, "duration": 4.8, "track": 2, "content": "同一张图，前端还原真要再快 50% 吗？", "style": "title-01", "x": 140, "y": 28, "w": 1640, "h": 120 },
+      { "id": "T2", "start": 5.2, "duration": 7.2, "track": 2, "content": "传统还原：尺寸/间距/交互状态最容易偏差", "style": "body-medium", "x": 140, "y": 980, "w": 1640, "h": 70 },
+      { "id": "T3", "start": 13.0, "duration": 9.9, "track": 2, "content": "先生成可识别结构图，再把输入给 restorer", "style": "body-medium", "x": 140, "y": 980, "w": 1640, "h": 70 },
+      { "id": "T4", "start": 23.0, "duration": 9.8, "track": 2, "content": "一键还原，不是替代手工，是让手工进入收口阶段", "style": "title-02", "x": 140, "y": 980, "w": 1640, "h": 70 },
+      { "id": "T5", "start": 40.8, "duration": 8.5, "track": 2, "content": "无插件版对照（开始和结束保留），时间消耗对比一目了然", "style": "body-medium", "x": 140, "y": 980, "w": 1640, "h": 70 },
+      { "id": "T6", "start": 48.8, "duration": 5.2, "track": 2, "content": "建议参数：fast 做首版，strict 做终稿，fine 处理边缘", "style": "title-02", "x": 220, "y": 960, "w": 1480, "h": 100 },
+      { "id": "T7", "start": 56.0, "duration": 3.8, "track": 2, "content": "评论‘教程’，私信我发你完整参数和素材模板", "style": "cta-01", "x": 300, "y": 980, "w": 1320, "h": 96 }
+    ]
+  },
+  "events": [
+    { "at": 29.6, "action": "add_sfx", "name": "clock", "track": 3 },
+    { "at": 47.0, "action": "add_sfx", "name": "cut_shift", "track": 3 }
+  ],
+  "notes": [
+    "B站版本适当加一点更高的信息密度：屏幕上可同时展示时间轴数字。",
+    "最后 2 秒保留 3 层字幕：结果收益、参数、引导。"
+  ]
+}
