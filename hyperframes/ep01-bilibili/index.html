@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=1080">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=1080">
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
   <style>
     *{box-sizing:border-box}html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#17211d}
@@ -24,23 +24,23 @@
     .cta{position:absolute;left:82px;bottom:74px;font-size:42px;font-weight:900;color:#d8ff62}
     #transitionLayer{position:absolute;inset:0;background:#d8ff62;opacity:0;z-index:20;pointer-events:none;transform-origin:center}
   </style></head><body>
-  <div id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1920" data-height="1080">
-    <div class="grain" data-layout-ignore></div><div id="transitionLayer" data-layout-ignore></div>
-    <audio id="voice" data-start="0" data-duration="60" data-track-index="20" src="assets/narration_ai_v1.wav" data-volume="1"></audio>
-    <section id="s1" class="scene clip" data-start="0" data-duration="5" data-track-index="1"><div class="kicker">痛点</div><h1>同一张图，手工还原前端真的太慢了</h1><div class="face">RK</div><div class="caption">同一张图，纯手工还原常常改半天还不准？</div></section>
-    <section id="s2" class="scene clip" data-start="5" data-duration="8" data-track-index="1"><div class="kicker">传统流程</div><h1>最容易翻车的不是代码，是尺寸、间距、状态</h1><div class="cards"><div class="card"><b>尺寸</b><span>容器宽高反复猜</span></div><div class="card"><b>间距</b><span>8px / 12px 总是偏</span></div><div class="card"><b>状态</b><span>hover / disabled 容易漏</span></div></div><div class="caption">传统抠图和重建，会把大量时间消耗在反复对齐上。</div></section>
-    <section id="s3" class="scene clip" data-start="13" data-duration="10" data-track-index="1"><div class="kicker">Image2 输入</div><h1>先生成一张结构清晰的 UI 参考图</h1><div class="panel" style="left:120px;top:310px;width:1200px;height:560px"><img src="assets/reference_ui.png"></div><div class="caption">先让 Image2 生成可识别的 UI 图，保留清晰模块边界。</div></section>
-    <section id="s4" class="scene clip" data-start="23" data-duration="9" data-track-index="1"><div class="kicker">Restorer</div><h1>喂给 image2-ui-code-restorer，一键开始</h1><div class="panel" style="left:120px;top:310px;width:1200px;height:560px"><img src="assets/reference_ui.png"></div><pre class="code">analyze reference.png
+  <div data-hf-id="hf-qbnw" id="root" data-composition-id="main" data-start="0" data-duration="60" data-width="1920" data-height="1080">
+    <div data-hf-id="hf-ryn8" class="grain" data-layout-ignore=""></div><div data-hf-id="hf-dbqc" id="transitionLayer" data-layout-ignore=""></div>
+    <audio data-hf-id="hf-4h4l" id="voice" data-start="0" data-duration="60" data-track-index="20" src="assets/narration_ai_v1.wav" data-volume="1"></audio>
+    <section data-hf-id="hf-o0ck" id="s1" class="scene clip" data-start="0" data-duration="5" data-track-index="1"><div data-hf-id="hf-hub7" class="kicker">痛点</div><h1 data-hf-id="hf-adfc">同一张图，手工还原前端真的太慢了</h1><div data-hf-id="hf-m8p4" class="face">RK</div><div data-hf-id="hf-xux2" class="caption">同一张图，纯手工还原常常改半天还不准？</div></section>
+    <section data-hf-id="hf-9kup" id="s2" class="scene clip" data-start="5" data-duration="8" data-track-index="1"><div data-hf-id="hf-o23a" class="kicker">传统流程</div><h1 data-hf-id="hf-uc44">最容易翻车的不是代码，是尺寸、间距、状态</h1><div data-hf-id="hf-5cwd" class="cards"><div data-hf-id="hf-vn2y" class="card"><b data-hf-id="hf-0otr">尺寸</b><span data-hf-id="hf-j8cx">容器宽高反复猜</span></div><div data-hf-id="hf-i08u" class="card"><b data-hf-id="hf-yhx6">间距</b><span data-hf-id="hf-unqy">8px / 12px 总是偏</span></div><div data-hf-id="hf-iejv" class="card"><b data-hf-id="hf-e0zc">状态</b><span data-hf-id="hf-1455">hover / disabled 容易漏</span></div></div><div data-hf-id="hf-gl24" class="caption">传统抠图和重建，会把大量时间消耗在反复对齐上。</div></section>
+    <section data-hf-id="hf-762i" id="s3" class="scene clip" data-start="13" data-duration="10" data-track-index="1"><div data-hf-id="hf-qim2" class="kicker">Image2 输入</div><h1 data-hf-id="hf-61by">先生成一张结构清晰的 UI 参考图</h1><div data-hf-id="hf-w50t" class="panel" style="left:120px;top:310px;width:1200px;height:560px"><img data-hf-id="hf-qpmr" src="assets/reference_ui.png"></div><div data-hf-id="hf-tt5x" class="caption">先让 Image2 生成可识别的 UI 图，保留清晰模块边界。</div></section>
+    <section data-hf-id="hf-4ovc" id="s4" class="scene clip" data-start="23" data-duration="9" data-track-index="1"><div data-hf-id="hf-i9z7" class="kicker">Restorer</div><h1 data-hf-id="hf-6007">喂给 image2-ui-code-restorer，一键开始</h1><div data-hf-id="hf-pan5" class="panel" style="left:120px;top:310px;width:1200px;height:560px"><img data-hf-id="hf-ybib" src="assets/reference_ui.png"></div><pre data-hf-id="hf-b2ol" class="code">analyze reference.png
 mode: fast
 style: pixel-accurate
 granularity: fine
-output: runnable HTML</pre><div class="caption">页面结构先出来，样式和间距再进入精修阶段。</div></section>
-    <section id="s5" class="scene clip" data-start="32" data-duration="8" data-track-index="1"><div class="kicker">运行结果</div><h1>输出不是图片，是能继续改的前端页面</h1><div class="panel" style="left:120px;top:310px;width:1200px;height:560px"><img src="assets/restored_ui.png"></div><pre class="code">&lt;aside class="sidebar"&gt;
+output: runnable HTML</pre><div data-hf-id="hf-9d8m" class="caption">页面结构先出来，样式和间距再进入精修阶段。</div></section>
+    <section data-hf-id="hf-6fzk" id="s5" class="scene clip" data-start="32" data-duration="8" data-track-index="1"><div data-hf-id="hf-0xmg" class="kicker">运行结果</div><h1 data-hf-id="hf-fq32">输出不是图片，是能继续改的前端页面</h1><div data-hf-id="hf-qhk8" class="panel" style="left:120px;top:310px;width:1200px;height:560px"><img data-hf-id="hf-zwuc" src="assets/restored_ui.png"></div><pre data-hf-id="hf-dizz" class="code">&lt;aside class="sidebar"&gt;
 &lt;main class="dashboard"&gt;
 &lt;table class="queue"&gt;
-CSS tokens locked</pre><div class="caption">代码、布局、组件都已经进入可编辑状态。</div></section>
-    <section id="s6" class="scene clip" data-start="40" data-duration="9" data-track-index="1"><div class="kicker">无插件对照</div><h1>无插件版本只保留开始和结尾，中间加速跳过</h1><div class="split"><div class="panel"><span class="label">无插件</span><img src="assets/manual_ui.png"></div><div class="panel"><span class="label">Restorer</span><img src="assets/restored_ui.png"></div></div><div class="caption">你能清楚感受到，时间消耗差别到底有多大。</div></section>
-    <section id="s7" class="scene clip" data-start="49" data-duration="11" data-track-index="1"><div class="kicker">关注领取</div><h1>我会继续拆参数、失败案例和完整教程</h1><div class="cards"><div class="card"><b>fast</b><span>先出首版结构</span></div><div class="card"><b>strict</b><span>终稿收口</span></div><div class="card"><b>fine</b><span>复杂布局拆细</span></div></div><div class="face">RK</div><div class="cta">关注我，评论“教程”拿完整参数包</div></section>
+CSS tokens locked</pre><div data-hf-id="hf-z1x4" class="caption">代码、布局、组件都已经进入可编辑状态。</div></section>
+    <section data-hf-id="hf-h6td" id="s6" class="scene clip" data-start="40" data-duration="9" data-track-index="1"><div data-hf-id="hf-kt3t" class="kicker">无插件对照</div><h1 data-hf-id="hf-58ya">无插件版本只保留开始和结尾，中间加速跳过</h1><div data-hf-id="hf-hgc8" class="split"><div data-hf-id="hf-owjm" class="panel"><span data-hf-id="hf-h8ff" class="label">无插件</span><img data-hf-id="hf-sh80" src="assets/manual_ui.png"></div><div data-hf-id="hf-gxly" class="panel"><span data-hf-id="hf-th69" class="label">Restorer</span><img data-hf-id="hf-a1bw" src="assets/restored_ui.png"></div></div><div data-hf-id="hf-wwe1" class="caption">你能清楚感受到，时间消耗差别到底有多大。</div></section>
+    <section data-hf-id="hf-di8u" id="s7" class="scene clip" data-start="49" data-duration="11" data-track-index="1"><div data-hf-id="hf-qfk4" class="kicker">关注领取</div><h1 data-hf-id="hf-4443">我会继续拆参数、失败案例和完整教程</h1><div data-hf-id="hf-cr7l" class="cards"><div data-hf-id="hf-isuw" class="card"><b data-hf-id="hf-idvz">fast</b><span data-hf-id="hf-kqya">先出首版结构</span></div><div data-hf-id="hf-byql" class="card"><b data-hf-id="hf-tjtg">strict</b><span data-hf-id="hf-pdmv">终稿收口</span></div><div data-hf-id="hf-cd1m" class="card"><b data-hf-id="hf-8vf1">fine</b><span data-hf-id="hf-lekx">复杂布局拆细</span></div></div><div data-hf-id="hf-m48w" class="face">RK</div><div data-hf-id="hf-uelr" class="cta">关注我，评论“教程”拿完整参数包</div></section>
   </div>
   <script>
     window.__timelines = window.__timelines || {};

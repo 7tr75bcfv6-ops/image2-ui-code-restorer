@@ -3,3 +3,5 @@ node_modules/
 *.log
 audio/*.aiff
 hyperframes/**/renders/
+hyperframes/**/.thumbnails/
+hyperframes/**/.waveform-cache/
