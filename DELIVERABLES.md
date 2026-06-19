@@ -17,6 +17,7 @@
 
 - `assets/covers/cover_douyin_9x16.png`
 - `assets/covers/cover_bilibili_16x9.png`
+- `assets/covers/ai_generated_cover_candidate.png`
 - `assets/source/compare/reference_ui.png`
 - `assets/source/compare/restored_ui.png`
 - `assets/source/compare/manual_ui.png`

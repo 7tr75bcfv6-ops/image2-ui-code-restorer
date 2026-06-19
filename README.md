@@ -15,6 +15,7 @@
 - AI 临时旁白：`audio/narration_ai_v1.wav`
 - 抖音封面：`assets/covers/cover_douyin_9x16.png`
 - B站封面：`assets/covers/cover_bilibili_16x9.png`
+- AI 生成封面候选：`assets/covers/ai_generated_cover_candidate.png`
 - Image2 风格参考图与还原对比：`assets/source/compare/`
 - 技能源码镜像：`skill/image2-ui-code-restorer/`
 
