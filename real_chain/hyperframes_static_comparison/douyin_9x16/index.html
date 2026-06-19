@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    :root {
+      --canvas: #f6f8fc;
+      --ink: #071a3d;
+      --muted: #667694;
+      --blue: #1264ff;
+      --green: #13b981;
+      --orange: #ff7a1a;
+      --panel: #ffffff;
+      --line: #dae5f3;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: sans-serif;
+    }
+    #root {
+      position: relative;
+      width: 1080px;
+      height: 1920px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(18, 100, 255, 0.17), rgba(18, 100, 255, 0) 30%),
+        radial-gradient(circle at 90% 18%, rgba(19, 185, 129, 0.14), rgba(19, 185, 129, 0) 26%),
+        linear-gradient(135deg, #fbfdff 0%, #eef4fc 100%);
+    }
+    .scene {
+      position: absolute;
+      inset: 0;
+      width: 1080px;
+      height: 1920px;
+      background-color: var(--canvas);
+      overflow: hidden;
+    }
+    .scene:not(#scene1) { opacity: 0; visibility: hidden; }
+    .grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.34;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(7, 26, 61, 0.035) 1px, rgba(0,0,0,0) 1px),
+        linear-gradient(90deg, rgba(7, 26, 61, 0.035) 1px, rgba(0,0,0,0) 1px);
+      background-size: 54px 54px;
+    }
+    .ghost {
+      position: absolute;
+      font-family: serif;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      color: rgba(7, 26, 61, 0.045);
+      white-space: nowrap;
+      pointer-events: none;
+      user-select: none;
+    }
+    .scene-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      padding: 86px 64px 74px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      width: max-content;
+      gap: 12px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(18, 100, 255, 0.10);
+      border: 1px solid rgba(18, 100, 255, 0.22);
+      color: var(--blue);
+      font-family: monospace;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .headline {
+      font-family: serif;
+      font-size: 94px;
+      line-height: 1.02;
+      font-weight: 900;
+      letter-spacing: -0.07em;
+      margin: 0;
+      color: var(--ink);
+      max-width: 900px;
+    }
+    .headline strong { color: var(--blue); }
+    .subline {
+      font-size: 35px;
+      line-height: 1.45;
+      font-weight: 520;
+      color: var(--muted);
+      max-width: 850px;
+      margin: 0;
+    }
+    .panel {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--line);
+      box-shadow: 0 20px 65px rgba(29, 66, 125, 0.12);
+      border-radius: 34px;
+      overflow: hidden;
+    }
+    .image-card {
+      position: relative;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      box-shadow: 0 20px 65px rgba(29, 66, 125, 0.12);
+      overflow: hidden;
+    }
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #fff;
+    }
+    .label {
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      z-index: 3;
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 27px;
+      font-weight: 820;
+      letter-spacing: -0.03em;
+      box-shadow: 0 12px 35px rgba(7, 26, 61, 0.18);
+    }
+    .label.orange { background: var(--orange); }
+    .label.green { background: var(--green); }
+    .label.blue { background: var(--blue); }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      flex: 1;
+      min-height: 0;
+    }
+    .table {
+      display: grid;
+      gap: 18px;
+      padding: 34px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 18px;
+      padding: 22px;
+      border-radius: 22px;
+      background: #f6f9fd;
+      border: 1px solid #e1eaf6;
+      font-size: 26px;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+    .row .k {
+      color: var(--muted);
+      font-family: monospace;
+      font-weight: 800;
+    }
+    .row .bad { color: var(--orange); font-weight: 850; }
+    .row .good { color: var(--green); font-weight: 850; }
+    .caption {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 70px;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 28px;
+      border-radius: 26px;
+      background: rgba(7, 26, 61, 0.88);
+      color: #f7fbff;
+      box-shadow: 0 22px 70px rgba(7, 26, 61, 0.22);
+      font-size: 31px;
+      font-weight: 760;
+      line-height: 1.28;
+    }
+    .caption .tag {
+      flex: 0 0 auto;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(19, 185, 129, 0.18);
+      color: #93ffd0;
+      font-family: monospace;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+    }
+    .cta-card {
+      margin-top: auto;
+      padding: 38px;
+      border-radius: 34px;
+      background: #071a3d;
+      color: #fff;
+      display: grid;
+      gap: 14px;
+      box-shadow: 0 28px 80px rgba(7, 26, 61, 0.25);
+    }
+    .cta-card .big {
+      font-family: serif;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      font-size: 62px;
+      line-height: 1.05;
+    }
+    .cta-card .small {
+      font-size: 31px;
+      color: #d7e7ff;
+      line-height: 1.38;
+    }
+    .url {
+      font-family: monospace;
+      color: #9af5cc;
+      font-size: 24px;
+      word-break: break-all;
+    }
+  
+    .hero-img { height: 650px; margin-top: auto; }
+    .single-img { height: 930px; }
+    .compare-stack { display: grid; gap: 22px; flex: 1; min-height: 0; }
+    .compare-stack .image-card { height: 570px; }
+    .table .row { grid-template-columns: 1fr 1fr; }
+    #scene1 .ghost { font-size: 210px; left: -18px; bottom: 390px; }
+    #scene4 .ghost { font-size: 190px; right: -40px; top: 80px; }
+  </style>
+</head>
+<body>
+  <div id="root" data-composition-id="douyin-static-comparison" data-width="1080" data-height="1920" data-start="0" data-duration="45">
+    <div id="scene1" class="scene">
+      <div class="grain"></div><div class="ghost">RESTORE</div>
+      <div class="scene-content">
+        <div class="eyebrow reveal">CASE / UI RESTORE</div>
+        <h1 class="headline reveal">同一张 UI 图，<strong>普通还原</strong>和技能还原差在哪？</h1>
+        <p class="subline reveal">结论很直接：普通版更像重新设计，技能版更像按原型结构复原。</p>
+        <div class="image-card hero-img reveal"><span class="label blue">原型图</span><img src="assets/original.png" /></div>
+      </div>
+    </div>
+    <div id="scene2" class="scene">
+      <div class="grain"></div>
+      <div class="scene-content">
+        <div class="eyebrow reveal">INPUT</div>
+        <h1 class="headline reveal">先看原型图：专家库页面</h1>
+        <p class="subline reveal">核心模块：筛选区、专家卡片、右侧统计、领域分布、专家优势。</p>
+        <div class="image-card single-img reveal"><span class="label blue">原型结构</span><img src="assets/original.png" /></div>
+      </div>
+    </div>
+    <div id="scene3" class="scene">
+      <div class="grain"></div>
+      <div class="scene-content">
+        <div class="eyebrow reveal">NO SKILL</div>
+        <h1 class="headline reveal">普通还原：页面完整，但结构被改写</h1>
+        <p class="subline reveal">顶部导航、咨询记录、字母头像、卡片数据，都开始偏离原型。</p>
+        <div class="image-card single-img reveal"><span class="label orange">更像重做</span><img src="assets/no-skill.png" /></div>
+      </div>
+    </div>
+    <div id="scene4" class="scene">
+      <div class="grain"></div><div class="ghost">SKILL</div>
+      <div class="scene-content">
+        <div class="eyebrow reveal">WITH SKILL</div>
+        <h1 class="headline reveal">技能还原：先拆结构，再复原模块</h1>
+        <p class="subline reveal">保留真实头像、右侧模块顺序、专家卡片网格和原型视觉节奏。</p>
+        <div class="image-card single-img reveal"><span class="label green">更接近原型</span><img src="assets/with-skill.png" /></div>
+      </div>
+    </div>
+    <div id="scene5" class="scene">
+      <div class="grain"></div>
+      <div class="scene-content">
+        <div class="eyebrow reveal">SIDE BY SIDE</div>
+        <h1 class="headline reveal">不是更漂亮，而是更像原图</h1>
+        <div class="compare-stack">
+          <div class="image-card reveal"><span class="label orange">普通版：重新设计感更强</span><img src="assets/no-skill.png" /></div>
+          <div class="image-card reveal"><span class="label green">技能版：结构更接近原型</span><img src="assets/with-skill.png" /></div>
+        </div>
+      </div>
+    </div>
+    <div id="scene6" class="scene">
+      <div class="grain"></div>
+      <div class="scene-content">
+        <div class="eyebrow reveal">COMPARISON</div>
+        <h1 class="headline reveal">对比重点看这 4 项</h1>
+        <div class="panel table reveal">
+          <div class="row"><span class="k">页面骨架</span><span><b class="bad">普通版偏移</b> / <b class="good">技能版更接近</b></span></div>
+          <div class="row"><span class="k">头像资产</span><span><b class="bad">字母头像</b> / <b class="good">真实头像</b></span></div>
+          <div class="row"><span class="k">右侧模块</span><span><b class="bad">重新组织</b> / <b class="good">基本保留</b></span></div>
+          <div class="row"><span class="k">文本数据</span><span><b class="bad">都有误差</b>，不能说像素级 1:1</span></div>
+        </div>
+      </div>
+    </div>
+    <div id="scene7" class="scene">
+      <div class="grain"></div>
+      <div class="scene-content">
+        <div class="eyebrow reveal">CTA</div>
+        <h1 class="headline reveal">想要完整教程和案例？</h1>
+        <p class="subline reveal">我已经整理了原型图、普通还原、技能还原、对比报告和 GitHub 示例。</p>
+        <div class="cta-card reveal">
+          <div class="big">评论「教程」</div>
+          <div class="small">领取 image2-ui-code-restorer 使用流程和真实对比素材。</div>
+          <div class="url">github.com/7tr75bcfv6-ops/image2-ui-code-restorer</div>
+        </div>
+      </div>
+    </div>
+    <div class="caption"><span>普通方式可以做出页面；技能方式更适合做结构还原首版。</span><span class="tag">NOT 1:1 CLAIM</span></div>
+  </div>
+  <script>
+    window.__timelines = window.__timelines || {};
+    var tl = gsap.timeline({ paused: true });
+    tl.from("#scene1 .reveal", { y: 50, opacity: 0, scale: 0.985, duration: 0.72, stagger: 0.08, ease: "expo.out" }, 0.2);
+    tl.from(".caption", { y: 32, opacity: 0, duration: 0.48, ease: "power3.out" }, 1.1);
+    
+      tl.set("#scene2", { visibility: "visible", opacity: 1, zIndex: 3 }, 4.5);
+      tl.from("#scene2 .reveal", { y: 42, x: 0, opacity: 0, scale: 0.985, duration: 0.62, stagger: 0.08, ease: "power3.out" }, 4.66);
+      tl.from("#scene2 .image-card", { scale: 0.96, opacity: 0, duration: 0.72, stagger: 0.10, ease: "back.out(1.2)" }, 4.72);
+      tl.to("#scene1", { opacity: 0, duration: 0.42, ease: "power2.inOut" }, 4.56);
+      tl.set("#scene1", { visibility: "hidden" }, 5.02);
+    
+
+      tl.set("#scene3", { visibility: "visible", opacity: 1, zIndex: 4 }, 10);
+      tl.from("#scene3 .reveal", { y: -34, x: 32, opacity: 0, scale: 0.985, duration: 0.62, stagger: 0.08, ease: "expo.out" }, 10.16);
+      tl.from("#scene3 .image-card", { scale: 0.96, opacity: 0, duration: 0.72, stagger: 0.10, ease: "back.out(1.2)" }, 10.22);
+      tl.to("#scene2", { opacity: 0, duration: 0.42, ease: "power2.inOut" }, 10.06);
+      tl.set("#scene2", { visibility: "hidden" }, 10.52);
+    
+
+      tl.set("#scene4", { visibility: "visible", opacity: 1, zIndex: 5 }, 16);
+      tl.from("#scene4 .reveal", { y: 42, x: 0, opacity: 0, scale: 0.985, duration: 0.62, stagger: 0.08, ease: "power3.out" }, 16.16);
+      tl.from("#scene4 .image-card", { scale: 0.96, opacity: 0, duration: 0.72, stagger: 0.10, ease: "back.out(1.2)" }, 16.22);
+      tl.to("#scene3", { opacity: 0, duration: 0.42, ease: "power2.inOut" }, 16.06);
+      tl.set("#scene3", { visibility: "hidden" }, 16.52);
+    
+
+      tl.set("#scene5", { visibility: "visible", opacity: 1, zIndex: 6 }, 23);
+      tl.from("#scene5 .reveal", { y: -34, x: 32, opacity: 0, scale: 0.985, duration: 0.62, stagger: 0.08, ease: "expo.out" }, 23.16);
+      tl.from("#scene5 .image-card", { scale: 0.96, opacity: 0, duration: 0.72, stagger: 0.10, ease: "back.out(1.2)" }, 23.22);
+      tl.to("#scene4", { opacity: 0, duration: 0.42, ease: "power2.inOut" }, 23.06);
+      tl.set("#scene4", { visibility: "hidden" }, 23.52);
+    
+
+      tl.set("#scene6", { visibility: "visible", opacity: 1, zIndex: 7 }, 31);
+      tl.from("#scene6 .reveal", { y: 42, x: 0, opacity: 0, scale: 0.985, duration: 0.62, stagger: 0.08, ease: "power3.out" }, 31.16);
+      tl.from("#scene6 .image-card", { scale: 0.96, opacity: 0, duration: 0.72, stagger: 0.10, ease: "back.out(1.2)" }, 31.22);
+      tl.to("#scene5", { opacity: 0, duration: 0.42, ease: "power2.inOut" }, 31.06);
+      tl.set("#scene5", { visibility: "hidden" }, 31.52);
+    
+
+      tl.set("#scene7", { visibility: "visible", opacity: 1, zIndex: 8 }, 38);
+      tl.from("#scene7 .reveal", { y: -34, x: 32, opacity: 0, scale: 0.985, duration: 0.62, stagger: 0.08, ease: "expo.out" }, 38.16);
+      tl.from("#scene7 .image-card", { scale: 0.96, opacity: 0, duration: 0.72, stagger: 0.10, ease: "back.out(1.2)" }, 38.22);
+      tl.to("#scene6", { opacity: 0, duration: 0.42, ease: "power2.inOut" }, 38.06);
+      tl.set("#scene6", { visibility: "hidden" }, 38.52);
+    
+    tl.to("#scene7 .reveal", { opacity: 0, y: -24, duration: 0.42, stagger: 0.04, ease: "power2.in" }, 44.2);
+    window.__timelines["douyin-static-comparison"] = tl;
+  </script>
+</body>
+</html>
