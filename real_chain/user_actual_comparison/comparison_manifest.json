@@ -1,0 +1,36 @@
+{
+  "title": "真实 UI 对比：普通还原 vs image2-ui-code-restorer",
+  "images": [
+    {
+      "role": "no_skill_restore",
+      "label": "未使用技能还原",
+      "path": "assets/01_no_skill_restore.png",
+      "width": 1536,
+      "height": 1024,
+      "aspect_ratio": 1.5
+    },
+    {
+      "role": "original_prototype",
+      "label": "原型图 / Image2 生成图",
+      "path": "assets/02_original_prototype.png",
+      "width": 2402,
+      "height": 1484,
+      "aspect_ratio": 1.618598
+    },
+    {
+      "role": "with_skill_restore",
+      "label": "使用 image2-ui-code-restorer 还原",
+      "path": "assets/03_with_skill_restore.png",
+      "width": 2940,
+      "height": 1602,
+      "aspect_ratio": 1.835206
+    }
+  ],
+  "recommended_message": "普通还原更像重新设计，技能还原更像按原型结构复原。",
+  "needs_before_public_claim": [
+    "如果要宣称像素级 1:1，需要统一视口重新导出三张图。",
+    "如果品牌名不是虚构，需要确认是否可公开使用。",
+    "如果要做教程，需要补充技能调用过程日志或截图。"
+  ]
+}
+

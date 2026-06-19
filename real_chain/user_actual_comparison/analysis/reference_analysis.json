@@ -1,0 +1,200 @@
+{
+  "count": 3,
+  "images": [
+    {
+      "path": "/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/user_actual_comparison/assets/01_no_skill_restore.png",
+      "filename": "01_no_skill_restore.png",
+      "width": 1536,
+      "height": 1024,
+      "aspect_ratio": 1.5,
+      "suggested_viewport": "1536x1024",
+      "corner_and_center_samples": {
+        "top_left": "#FEFFFF",
+        "top_right": "#C1C1C1",
+        "bottom_left": "#EFF5FF",
+        "bottom_right": "#FAFAFA",
+        "center": "#0B64FB"
+      },
+      "dominant_palette": [
+        {
+          "hex": "#F7FAFF",
+          "count": 3241
+        },
+        {
+          "hex": "#EBF1FA",
+          "count": 2672
+        },
+        {
+          "hex": "#F2F6FC",
+          "count": 1889
+        },
+        {
+          "hex": "#F4F8FE",
+          "count": 1739
+        },
+        {
+          "hex": "#F7FAFE",
+          "count": 1680
+        },
+        {
+          "hex": "#CDC3C1",
+          "count": 1642
+        },
+        {
+          "hex": "#666AAB",
+          "count": 1629
+        },
+        {
+          "hex": "#9FA4B4",
+          "count": 1605
+        },
+        {
+          "hex": "#D1E1E5",
+          "count": 1151
+        },
+        {
+          "hex": "#D3D2D7",
+          "count": 1126
+        },
+        {
+          "hex": "#F6FAFE",
+          "count": 1101
+        },
+        {
+          "hex": "#E5E9EF",
+          "count": 1067
+        }
+      ]
+    },
+    {
+      "path": "/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/user_actual_comparison/assets/02_original_prototype.png",
+      "filename": "02_original_prototype.png",
+      "width": 2402,
+      "height": 1484,
+      "aspect_ratio": 1.618598,
+      "suggested_viewport": "2402x1484",
+      "corner_and_center_samples": {
+        "top_left": "#FBFCFF",
+        "top_right": "#FBFDFF",
+        "bottom_left": "#576D94",
+        "bottom_right": "#FCFDFE",
+        "center": "#FEFDFD"
+      },
+      "dominant_palette": [
+        {
+          "hex": "#C7CCD8",
+          "count": 1129
+        },
+        {
+          "hex": "#B8BECA",
+          "count": 884
+        },
+        {
+          "hex": "#D2D7E2",
+          "count": 863
+        },
+        {
+          "hex": "#8F8DA1",
+          "count": 763
+        },
+        {
+          "hex": "#324773",
+          "count": 740
+        },
+        {
+          "hex": "#9FB1CB",
+          "count": 702
+        },
+        {
+          "hex": "#EEFBF7",
+          "count": 686
+        },
+        {
+          "hex": "#F8FAFC",
+          "count": 650
+        },
+        {
+          "hex": "#F7F6F8",
+          "count": 627
+        },
+        {
+          "hex": "#F3FCF9",
+          "count": 620
+        },
+        {
+          "hex": "#E1E3E9",
+          "count": 615
+        },
+        {
+          "hex": "#D9DCE3",
+          "count": 606
+        }
+      ]
+    },
+    {
+      "path": "/Users/rk/Documents/Codex/2026-06-19/ai-image2-ui-code-restorer-image2/outputs/image2-ui-code-restorer-github-kit/real_chain/user_actual_comparison/assets/03_with_skill_restore.png",
+      "filename": "03_with_skill_restore.png",
+      "width": 2940,
+      "height": 1602,
+      "aspect_ratio": 1.835206,
+      "suggested_viewport": "2940x1602",
+      "corner_and_center_samples": {
+        "top_left": "#FAFBFE",
+        "top_right": "#F9FAFD",
+        "bottom_left": "#F9FBFD",
+        "bottom_right": "#F2F4F5",
+        "center": "#FFFFFF"
+      },
+      "dominant_palette": [
+        {
+          "hex": "#F7F9FC",
+          "count": 1676
+        },
+        {
+          "hex": "#DAE2E7",
+          "count": 1342
+        },
+        {
+          "hex": "#F6F8FC",
+          "count": 1130
+        },
+        {
+          "hex": "#F8FAFD",
+          "count": 1092
+        },
+        {
+          "hex": "#D8CDCB",
+          "count": 1032
+        },
+        {
+          "hex": "#A7C5CE",
+          "count": 996
+        },
+        {
+          "hex": "#ECFAF6",
+          "count": 881
+        },
+        {
+          "hex": "#F4F7FB",
+          "count": 815
+        },
+        {
+          "hex": "#AEA9B5",
+          "count": 810
+        },
+        {
+          "hex": "#536185",
+          "count": 745
+        },
+        {
+          "hex": "#F4FCFB",
+          "count": 741
+        },
+        {
+          "hex": "#F1F3F6",
+          "count": 686
+        }
+      ]
+    }
+  ]
+}
